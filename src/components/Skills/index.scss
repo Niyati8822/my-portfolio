@@ -1,0 +1,181 @@
+.section.section-skills {
+  position: relative;
+  width: 100%;
+  /* Fullscreen sphere-only layout */
+  .section.section-skills.only-sphere {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 50%, rgba(25,55,95,0.55), rgba(10,20,35,0.85));
+  }
+
+  .sphere-fullscreen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sphere-fullscreen .energy-sphere-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .skills-overlay-label {
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, rgba(120,170,255,0.9), rgba(160,120,255,0.85));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    mix-blend-mode: screen;
+  }
+  gap: 6px;
+  backdrop-filter: blur(4px);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.skill-pill:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #7ab4ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #7ab4ff;
+}
+
+.skill-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px -4px rgba(105,160,255,0.6);
+}
+
+.sphere-wrapper {
+  width: 100%;
+  height: 600px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(90,150,255,0.35);
+  background: radial-gradient(circle at 50% 50%, rgba(40,90,150,0.35), rgba(20,40,70,0.55));
+}
+
+.energy-sphere-fullpage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.energy-sphere-fullpage canvas,
+.energy-sphere-fullpage .energy-sphere-canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  display: block;
+}
+
+.skills-page {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+
+  .text-zone {
+    flex: 0 0 auto;
+    padding-left: 10%;
+
+    h1 {
+      font-size: 3rem;
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -1px;
+      word-spacing: 0.15em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-top: 0;
+      position: relative;
+      margin-bottom: 40px;
+      left: 10px;
+
+      &:before {
+        content: '<h1>';
+        font-family: 'La Belle Aurore', cursive;
+        color: #ffd700;
+        font-size: 18px;
+        position: absolute;
+        margin-top: -10px;
+        left: -10px;
+        opacity: 0.6;
+        line-height: 18px;
+      }
+
+      &:after {
+        content: '</h1>';
+        font-family: 'La Belle Aurore', cursive;
+        color: #ffd700;
+        font-size: 18px;
+        line-height: 18px;
+        position: absolute;
+        left: -30px;
+        bottom: -20px;
+        margin-left: 20px;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .sphere-zone {
+    flex: 1;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .skills-page {
+    flex-direction: column;
+    gap: 30px;
+
+    .text-zone {
+      padding-left: 5%;
+    }
+
+    .sphere-zone {
+      height: 500px;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-page {
+    .text-zone {
+      padding-left: 20px;
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+
+    .sphere-zone {
+      height: 400px;
+    }
+  }
+}

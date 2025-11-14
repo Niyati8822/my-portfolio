@@ -1,0 +1,55 @@
+.energy-sphere-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: block;
+  cursor: grab;
+  background: radial-gradient(circle at center, rgba(30, 144, 255, 0.1) 0%, transparent 70%);
+}
+
+.energy-sphere-container:active {
+  cursor: grabbing;
+}
+
+.energy-sphere-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  filter: drop-shadow(0 0 15px rgba(0, 153, 255, 0.6)) drop-shadow(0 0 30px rgba(0, 153, 255, 0.4));
+}
+
+/* Optional subtle background gradient */
+.energy-sphere-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 140, 255, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Fallback (no WebGL) styling */
+.energy-sphere-fallback {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 40px;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.energy-sphere-fallback .fallback-skill-tag {
+  background: rgba(77, 166, 255, 0.2);
+  border: 1px solid rgba(77, 166, 255, 0.5);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(77, 166, 255, 0.8);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
+}

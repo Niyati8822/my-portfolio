@@ -1,0 +1,17 @@
+.energy-sphere-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Light background for contrast */
+}
+
+.fallback-skill-tag {
+  font-size: 18px;
+  color: #333;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

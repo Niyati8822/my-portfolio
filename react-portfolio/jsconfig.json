@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "baseUrl": "src",
+    "paths": {
+      "*": ["*"]
+    },
+    "jsx": "react"
+  },
+  "include": ["src"]
+}

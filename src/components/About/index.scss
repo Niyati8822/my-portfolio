@@ -1,0 +1,55 @@
+.section.section-about {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 60px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.section-inner {
+  max-width: 100%;
+  width: 100%;
+  color: #fff;
+}
+
+/* Standard paragraph styling for About page */
+.about-paragraph {
+  font-size: 3rem;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  word-spacing: 0.15em;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.about-paragraph {
+  margin-bottom: 24px; /* increase or decrease as needed */
+  line-height: 1.6; /* optional: makes paragraphs easier to read */
+}
+
+.about-title {
+  font-size: 5.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  word-spacing: 0.15em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// If the heading uses h1 or h2 directly:
+h1, h2 {
+  // ...existing code...
+  &.about-title {
+    font-size: 2.5rem;
+  }
+}
+

@@ -1,0 +1,200 @@
+ .nav-bar {
+   background: #2b2b2b;
+   width: 60px;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 3;
+   min-height: 500px;
+   position: relative;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    text-decoration: none;
+
+    img {
+      display: block;
+      margin: 8px auto 0 auto;
+      width: 40px;
+      height: auto;
+    }
+
+    .sidebar-name {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 36px;
+    width: 100%;
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    transition: background 0.2s;
+    border-radius: 8px;
+    padding: 6px 0;
+    position: relative;
+    min-height: 48px;
+  }
+
+  .sidebar-link svg {
+    transition: opacity 0.2s;
+  }
+
+  .sidebar-label {
+    opacity: 0;
+    margin-left: 0;
+    color: #bbb;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: opacity 0.2s, color 0.2s;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  /* default icon color and visibility */
+  .sidebar-link svg,
+  .sidebar-link .sidebar-icon {
+    color: #bbb; /* visible on dark bg */
+    }
+
+    /* Left-align 'My Work' label */
+    .portfolio-link .sidebar-label {
+      left: 0;
+      text-align: left;
+      justify-content: flex-start;
+      display: flex;
+      position: static;
+      margin-left: 0;
+      width: 100%;
+    }
+    opacity: 1;
+    transition: opacity 0.18s, color 0.18s;
+  }
+
+  .sidebar-link:hover svg,
+  .sidebar-link:focus svg,
+  .sidebar-link.active svg,
+  .sidebar-link:hover .sidebar-icon,
+  .sidebar-link:focus .sidebar-icon,
+  .sidebar-link.active .sidebar-icon {
+    opacity: 0;
+  }
+
+  /* Footer social links */
+  .sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8px;
+  }
+
+  .sidebar-footer .social-link {
+    color: #bbb;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+
+  .sidebar-footer .social-link:hover {
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  .sidebar-link:hover .sidebar-label,
+  .sidebar-link:focus .sidebar-label,
+  .sidebar-link.active .sidebar-label {
+    opacity: 1;
+    color: #fff;
+  }
+
+
+  .sidebar-link:hover,
+  .sidebar-link:focus,
+  .sidebar-link.active {
+    background: #222;
+  }
+
+}
+
+/* Toggle button and responsive behavior */
+.toggle-btn {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10010;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 10000;
+}
+
+@media (max-width: 768px) {
+  .toggle-btn { display: block; color: #fff; }
+
+  .nav-bar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 10001;
+  }
+
+  .nav-bar.open {
+    transform: translateX(0);
+  }
+
+  /* when nav is open keep icons aligned to left inside small sidebar */
+  .nav-bar .logo {
+    padding-left: 12px;
+  }
+
+  .nav-bar .sidebar-icons {
+    left: 20px;
+    transform: none;
+    top: 120px;
+    width: auto;
+    gap: 28px;
+  }
+
+  .sidebar-footer { bottom: 12px; }
+}

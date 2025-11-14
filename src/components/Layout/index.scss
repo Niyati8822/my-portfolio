@@ -1,0 +1,12 @@
+ .layout-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+ }
+
+ .layout-content {
+  position: relative;
+  z-index: 2; /* above dots canvas */
+ }
+

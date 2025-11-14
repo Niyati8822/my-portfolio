@@ -1,0 +1,36 @@
+/* Global styles for the React portfolio application */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: #0e1f3b;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer {
+  background-color: #0e1f3b;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

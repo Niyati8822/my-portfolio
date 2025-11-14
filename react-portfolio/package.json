@@ -1,0 +1,45 @@
+{
+  "name": "react-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-scripts": "5.0.1",
+    "react-router-dom": "^7.9.5",
+    "gsap": "^3.11.5",
+    "emailjs-com": "^3.10.0",
+    "font-awesome": "^4.7.0",
+    "animate.css": "^4.1.1",
+    "react-leaflet": "^3.2.1",
+    "three": "^0.152.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "react-testing-library": "^12.1.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
