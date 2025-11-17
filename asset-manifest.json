@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/my-portfolio/static/css/main.96b07cbc.css",
-    "main.js": "/my-portfolio/static/js/main.abfa0796.js",
-    "static/js/453.ccda90dd.chunk.js": "/my-portfolio/static/js/453.ccda90dd.chunk.js",
+    "main.css": "/my-portfolio/static/css/main.bfe870c0.css",
+    "main.js": "/my-portfolio/static/js/main.ead4689b.js",
+    "static/js/453.4a895a69.chunk.js": "/my-portfolio/static/js/453.4a895a69.chunk.js",
     "static/media/Project 5.png": "/my-portfolio/static/media/Project 5.ab6fe57a62fc149427c1.png",
     "static/media/Project 1.png": "/my-portfolio/static/media/Project 1.c78272dd3cba27ead61f.png",
-    "static/media/myportrait.png": "/my-portfolio/static/media/myportrait.4f24649079c1bc05c7c6.png",
+    "static/media/Photo (3).jpg": "/my-portfolio/static/media/Photo (3).39e584c9eab4fd9cfe3e.jpg",
     "static/media/Project 6.jpg": "/my-portfolio/static/media/Project 6.e9c3ab94f4a8ca9eb4cb.jpg",
     "static/media/Project 2.png": "/my-portfolio/static/media/Project 2.c66ec9bb07e39121f1dc.png",
     "static/media/Project 3. jpg.png": "/my-portfolio/static/media/Project 3. jpg.4376fa23e743d2309fb9.png",
@@ -14,12 +14,12 @@
     "static/media/LaBelleAurore.woff2": "/my-portfolio/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
     "static/media/CoolveticaRg-Regular.woff2": "/my-portfolio/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/my-portfolio/index.html",
-    "main.96b07cbc.css.map": "/my-portfolio/static/css/main.96b07cbc.css.map",
-    "main.abfa0796.js.map": "/my-portfolio/static/js/main.abfa0796.js.map",
-    "453.ccda90dd.chunk.js.map": "/my-portfolio/static/js/453.ccda90dd.chunk.js.map"
+    "main.bfe870c0.css.map": "/my-portfolio/static/css/main.bfe870c0.css.map",
+    "main.ead4689b.js.map": "/my-portfolio/static/js/main.ead4689b.js.map",
+    "453.4a895a69.chunk.js.map": "/my-portfolio/static/js/453.4a895a69.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96b07cbc.css",
-    "static/js/main.abfa0796.js"
+    "static/css/main.bfe870c0.css",
+    "static/js/main.ead4689b.js"
   ]
 }
