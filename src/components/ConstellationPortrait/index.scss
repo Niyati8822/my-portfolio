@@ -1,0 +1,23 @@
+.constellation-portrait {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.constellation-portrait canvas {
+  width: 400px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 900px) {
+  .constellation-portrait canvas {
+    width: 320px;
+    height: 320px;
+  }
+}

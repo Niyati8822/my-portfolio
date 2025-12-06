@@ -1,0 +1,24 @@
+.error-boundary {
+  padding: 2rem;
+  background: #220000;
+  color: #fff;
+  border: 2px solid #ff5555;
+  border-radius: 8px;
+  max-width: 760px;
+  margin: 2rem auto;
+  box-shadow: 0 0 12px rgba(255,85,85,0.4);
+}
+.error-boundary h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #ff9999;
+}
+.error-details {
+  white-space: pre-wrap;
+  font-family: monospace;
+  background: #330000;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow: auto;
+  max-height: 240px;
+}

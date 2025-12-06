@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# My Portfolio
+
+[![Deploy to GitHub Pages](https://github.com/Niyati8822/my-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/Niyati8822/my-portfolio/actions/workflows/deploy.yml)
+
+A modern, responsive portfolio website built with React showcasing my work, skills, and experience.
+
+**Live Site:** [https://Niyati8822.github.io/my-portfolio](https://Niyati8822.github.io/my-portfolio)
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

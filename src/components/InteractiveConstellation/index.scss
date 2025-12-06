@@ -1,0 +1,33 @@
+.interactive-constellation {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  canvas {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Boost overall visual brightness & contrast */
+    filter: contrast(1.2) brightness(1.25) saturate(1.1);
+    transition: filter 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .interactive-constellation canvas {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .interactive-constellation canvas {
+    max-width: 350px;
+  }
+}

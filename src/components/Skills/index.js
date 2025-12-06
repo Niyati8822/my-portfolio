@@ -39,7 +39,7 @@ const Skills = () => {
 
   return (
     <>
-      <div className="container skills-page">
+  <div className="container skills-page" aria-label="skills energy sphere section">
         <div className="text-zone">
           <h1>
             <AnimatedLetters

@@ -1,11 +1,11 @@
 import './index.scss';
-import { useState } from 'react';
-import Project1 from '../../assets/images/Project 1.png';
-import Project2 from '../../assets/images/Project 2.png';
-import Project3 from '../../assets/images/Project 3. jpg.png';
-import Project4 from '../../assets/images/Project 4.png';
-import Project5 from '../../assets/images/Project 5.png';
-import Project6 from '../../assets/images/Project 6.jpg';
+import { useState, useRef, useEffect } from 'react';
+import Project1 from '../../assets/images/Project 1 updated.png';
+import Project2 from '../../assets/images/Project 2 updated.png';
+import Project3 from '../../assets/images/Project 3 updated.png';
+import Project4 from '../../assets/images/Project 4 updated.png';
+import Project5 from '../../assets/images/Project 5 updated.png';
+import Project6 from '../../assets/images/Project 6 updated.png';
 
 const Work = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -75,47 +75,53 @@ const Work = () => {
     setSelectedProject(null);
   };
 
+  // keyboard focus management for modal
+  const closeButtonRef = useRef(null);
+  useEffect(() => {
+    if (selectedProject && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [selectedProject]);
+
   return (
-    <section id="work" className="section section-work">
+    <section id="work" className="section section-work" aria-labelledby="work-heading">
       <div className="work-content">
-        <h2 className="work-heading">My Work</h2>
-        
-        <div className="portfolio-grid">
+        <h2 id="work-heading" className="work-heading">My Work</h2>
+        <div className="project-strip" role="list" aria-label="Project gallery">
           {projects.map((project) => (
-            <div
+            <button
               key={project.id}
-              className="portfolio-item"
+              role="listitem"
+              type="button"
+              className={`strip-item ${selectedProject?.id === project.id ? 'active' : ''}`}
               onClick={() => openModal(project)}
+              aria-haspopup="dialog"
+              aria-label={`${project.title} – ${project.category}`}
             >
-              <div className="portfolio-item-inner">
+              <div className="strip-item-inner">
                 {project.thumbnail ? (
-                  <img src={project.thumbnail} alt={project.title} />
+                  <img src={project.thumbnail} alt="" aria-hidden="true" />
                 ) : (
-                  <div className="placeholder-image">
-                    <span>Add Image</span>
-                  </div>
+                  <div className="placeholder-image"><span>Image</span></div>
                 )}
-                <div className="portfolio-overlay">
+                <div className="strip-overlay">
                   <h3>{project.title}</h3>
                   <p>{project.category}</p>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
-        {/* Modal Popup */}
         {selectedProject && (
-          <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-overlay" onClick={closeModal} role="dialog" aria-modal="true" aria-label={selectedProject.title}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={closeModal}>×</button>
-              
+              <button ref={closeButtonRef} className="modal-close" onClick={closeModal} aria-label="Close project details">×</button>
               <div className="modal-body">
                 <div className="modal-details only-text">
                   <h2>{selectedProject.title}</h2>
                   <p className="modal-category">{selectedProject.category}</p>
                   <p className="modal-description">{selectedProject.description}</p>
-                  
                   <div className="modal-technologies">
                     <h4>Technologies:</h4>
                     <div className="tech-tags">
@@ -124,11 +130,10 @@ const Work = () => {
                       ))}
                     </div>
                   </div>
-                  
                   {selectedProject.link && (
-                    <a 
-                      href={selectedProject.link} 
-                      target="_blank" 
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="project-link"
                     >

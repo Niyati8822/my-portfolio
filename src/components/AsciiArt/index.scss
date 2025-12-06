@@ -1,0 +1,22 @@
+.ascii-art-container {
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.ascii-art {
+  font-family: 'Courier New', monospace;
+  font-size: 6px;
+  line-height: 6px;
+  color: #b3b3b3; // neutral grey similar to terminal-style ASCII
+  margin: 0;
+  white-space: pre;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+  background: transparent;
+  // Removed colored glow; subtle soft edge for readability
+  text-shadow: 0 0 4px rgba(255,255,255,0.15);
+}

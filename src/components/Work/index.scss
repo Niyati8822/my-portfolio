@@ -27,52 +27,153 @@
   text-align: center;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); // fixed 3 columns for even distribution
-  gap: 20px; // reduced gap for fuller coverage
-  margin-bottom: 0; // remove bottom margin to fill space
+/* Horizontal strip gallery */
+.project-strip {
+  --item-size: 240px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
   width: 100%;
+  overflow-x: auto;
+  padding: 10px 10px 30px;
+  scroll-snap-type: x mandatory;
+  mask: linear-gradient(to right, transparent, rgba(0,0,0,0.6) 60px, rgba(0,0,0,0.6) calc(100% - 60px), transparent);
 }
 
-.portfolio-item {
-  cursor: pointer;
-  border-radius: 12px;
+.project-strip::-webkit-scrollbar {
+  height: 10px;
+}
+.project-strip::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+}
+.project-strip::-webkit-scrollbar-thumb {
+  background: rgba(255,235,59,0.35);
+  border-radius: 6px;
+}
+
+.strip-item {
+  position: relative;
+  flex: 0 0 var(--item-size);
+  height: var(--item-size);
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-  
-  &:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    
-    .portfolio-overlay {
-      opacity: 1;
-    }
-    
-    .portfolio-item-inner img {
-      transform: scale(1.1);
-    }
-  }
+  cursor: pointer;
+  scroll-snap-align: center;
+  padding: 0;
+  outline: none;
+  transition: transform .65s cubic-bezier(.22,.85,.3,1), box-shadow .45s ease, border-color .3s ease, filter .4s ease;
+  display: inline-flex;
+  z-index: 1;
+  will-change: transform;
 }
 
-.portfolio-item-inner {
+.strip-item:focus-visible {
+  border-color: #ffeb3b;
+  box-shadow: 0 0 0 4px rgba(255,235,59,0.35);
+}
+
+.strip-item.active {
+  transform: scale(1.18) translateY(-10px);
+  box-shadow: 0 25px 50px -18px rgba(0,0,0,.75);
+  border-color: rgba(255,235,59,0.65);
+  z-index: 6;
+}
+
+.strip-item:hover:not(.active),
+.strip-item:focus-visible:not(.active) {
+  transform: scale(1.15) translateY(-10px);
+  box-shadow: 0 20px 42px -16px rgba(0,0,0,.7);
+  z-index: 5;
+  border-color: rgba(255,235,59,0.45);
+}
+
+/* De-emphasize non-hovered siblings when hovering strip */
+.project-strip:hover .strip-item:not(:hover):not(.active) {
+  transform: scale(.92) translateY(0);
+  filter: brightness(.85) saturate(.85);
+  opacity: .65;
+}
+
+.strip-item-inner {
   position: relative;
   width: 100%;
-  padding-bottom: 100%; // 1:1 square aspect ratio
-  background: rgba(65, 64, 64, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  overflow: hidden;
-  
-  img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+
+.strip-item-inner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.15s cubic-bezier(.22,.85,.3,1);
+  transform-origin: center;
+}
+
+.strip-item:hover img,
+.strip-item:focus-visible img,
+.strip-item.active img {
+  transform: scale(1.25);
+}
+
+.strip-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.55) 45%, rgba(0,0,0,0) 80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px 20px;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.strip-item:hover .strip-overlay,
+.strip-item.active .strip-overlay {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strip-item,
+  .strip-item-inner img {
+    transition: none !important;
+  }
+  .strip-item:hover:not(.active),
+  .strip-item:focus-visible:not(.active),
+  .strip-item.active {
+    transform: none;
+    box-shadow: none;
+  }
+  .project-strip:hover .strip-item:not(:hover):not(.active) {
+    transform: none;
+    filter: none;
+    opacity: 1;
   }
 }
+
+.strip-overlay h3 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .5px;
+}
+.strip-overlay p {
+  margin: 0;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #ffeb3b;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* legacy grid item styles removed */
+
+/* old inner removed */
 
 .placeholder-image {
   position: absolute;
@@ -92,40 +193,19 @@
   }
 }
 
-.portfolio-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  
-  h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-    color: #ffffff;
-  margin: 0 0 10px 0;
-  background: rgba(0, 0, 0, 0.75);
-  padding: 10px 16px;
-  border-radius: 8px;
-  display: inline-block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  
-  p {
-  font-size: 1.1rem;
-  font-weight: 600;
-    color: #ffeb3b;
-    margin: 0;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 6px 12px;
-  border-radius: 6px;
-  display: inline-block;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-  }
+/* old overlay removed */
+
+@media (max-width: 1100px) {
+  .project-strip { --item-size: 200px; }
+}
+@media (max-width: 900px) {
+  .project-strip { --item-size: 170px; gap: 18px; }
+  .strip-overlay h3 { font-size: 1rem; }
+}
+@media (max-width: 600px) {
+  .project-strip { --item-size: 150px; gap: 14px; padding-bottom: 20px; }
+  .strip-overlay h3 { font-size: .9rem; }
+  .strip-overlay p { font-size: .65rem; }
 }
 
 // Modal styles
@@ -227,8 +307,8 @@
 .modal-description {
   font-size: 1.65rem; // significantly larger for maximum readability
   line-height: 1.6;
-  color: #ffffff; // bright white matching title
-  font-weight: 500; // medium weight for thicker appearance
+  color: #ffffff !important; // force pure white to match title
+  font-weight: 600; // slight increase for visual parity with title
   margin: 0 0 32px 0;
   white-space: pre-line;
 }
